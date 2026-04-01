@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ann-spec.org/v0.2/schema.json",
+  "title": "ANN Document Schema v0.2",
+  "description": "JSON Schema for validating AI-Native Notation documents. This schema validates the structural representation of an ANN document parsed into JSON. It does not validate the raw text format directly; use the companion validator (ann_validator.py) for text-format validation.",
+  "type": "object",
+  "required": ["version", "blocks"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "0.2",
+      "description": "ANN specification version"
+    },
+    "blocks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/block"
+      },
+      "description": "Ordered sequence of ANN blocks"
+    }
+  },
+  "$defs": {
+    "block": {
+      "type": "object",
+      "required": ["type", "body"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "FORMAL", "LOGIC", "DERIVE", "TAXONOMY", "ANCHOR", "TRIGGER",
+            "STATE", "VERIFY", "OUTPUT",
+            "PROVENANCE", "TRANSFER_REPORT", "DERIVATION_TRACE",
+            "SCOPE", "CONFIDENCE", "TRUST_TRANSFORMATION"
+          ],
+          "description": "Block type without the @ prefix"
+        },
+        "label": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_:-]*$",
+          "description": "Optional named label (appears in brackets after block type)"
+        },
+        "body": {
+          "description": "Block body content, structure varies by block type",
+          "oneOf": [
+            { "$ref": "#/$defs/freeTextBody" },
+            { "$ref": "#/$defs/deriveBody" },
+            { "$ref": "#/$defs/taxonomyBody" },
+            { "$ref": "#/$defs/verifyBody" },
+            { "$ref": "#/$defs/outputBody" },
+            { "$ref": "#/$defs/stateBody" }
+          ]
+        }
+      }
+    },
+    "freeTextBody": {
+      "type": "object",
+      "required": ["content"],
+      "properties": {
+        "content": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Free-text content (used by FORMAL, LOGIC, ANCHOR, TRIGGER, SCOPE)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "deriveBody": {
+      "type": "object",
+      "required": ["steps"],
+      "properties": {
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/deriveStep"
+          }
+        },
+        "conclusion": {
+          "type": "string",
+          "description": "Forced conclusion text (follows →→)"
+        }
+      },
+      "additionalProperties": false
+    },
+    "deriveStep": {
+      "type": "object",
+      "required": ["number", "content"],
+      "properties": {
+        "number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "content": {
+          "type": "string",
+          "minLength": 1
+        },
+        "from": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Step or block reference, e.g. '(1)' or '@FORMAL[Landauer]'"
+          },
+          "description": "References this step derives from"
+        }
+      },
+      "additionalProperties": false
+    },
+    "taxonomyBody": {
+      "type": "object",
+      "required": ["entries"],
+      "properties": {
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/taxonomyEntry"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "taxonomyEntry": {
+      "type": "object",
+      "required": ["key", "status"],
+      "properties": {
+        "key": {
+          "type": "string",
+          "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["CONFIRMED", "OPEN", "DENIED"]
+        },
+        "value": {
+          "type": "string",
+          "description": "Optional qualifier or note"
+        }
+      },
+      "additionalProperties": false
+    },
+    "verifyBody": {
+      "type": "object",
+      "required": ["target", "steps"],
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "Section reference being verified, e.g. '§observer_argument'"
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/verifyStep"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "verifyStep": {
+      "type": "object",
+      "required": ["reference", "verdict"],
+      "properties": {
+        "reference": {
+          "type": "string",
+          "description": "Step or section being verified"
+        },
+        "verdict": {
+          "type": "string",
+          "enum": ["HOLDS", "FAILS", "UNCERTAIN"]
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "outputBody": {
+      "type": "object",
+      "required": ["mode"],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["report", "derive", "defend", "verify", "extend"]
+        },
+        "include": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Block types or references to include in response"
+        },
+        "format": {
+          "type": "string",
+          "description": "Additional formatting instructions"
+        }
+      },
+      "additionalProperties": true
+    },
+    "stateBody": {
+      "type": "object",
+      "required": ["fields"],
+      "properties": {
+        "fields": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/stateField"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "stateField": {
+      "type": "object",
+      "required": ["key", "value"],
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "oneOf": [
+            { "type": "string" },
+            { "type": "array", "items": { "type": "string" } }
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
