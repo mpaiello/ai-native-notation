@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+title: "AI-Native Notation (ANN)"
+message: "If you use this specification, please cite it as below."
+type: software
+authors:
+  - family-names: Aiello
+    given-names: Michael Patrick
+    orcid: "https://orcid.org/0009-0009-1429-9844"
+    email: mpaiello@gmail.com
+repository-code: "https://github.com/mpaiello/ai-native-notation"
+license: CC-BY-NC-4.0
+version: 0.3.1
+date-released: "2026-04-01"
+abstract: >-
+  AI-Native Notation (ANN) is a structured communication protocol for
+  cross-architecture AI state transfer. Nine core block types and seven
+  transfer protocol blocks encode processing instructions, epistemic
+  status, and reasoning chains in a format that LLM architectures adopt
+  spontaneously. Validated across six architectures (Claude, Gemini,
+  GPT-4o, DeepSeek, Grok, MiniMax) with 89/90 cross-architecture
+  accuracy.
+keywords:
+  - ai-communication
+  - llm
+  - inter-model-protocol
+  - notation
+  - cross-architecture
+  - state-transfer
+identifiers:
+  - type: other
+    value: "USPTO 63/980,973"
+    description: "Provisional patent application"
+references:
+  - type: article
+    title: "AI-Native Notation: A Convergence-Based Structured Communication Protocol for Cross-Architecture LLM State Transfer"
+    authors:
+      - family-names: Aiello
+        given-names: Michael Patrick
+    year: 2026
+    notes: "Under review at Language Resources and Evaluation (LRE), submission ID 2aa79221"
