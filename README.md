@@ -2,7 +2,7 @@
 
 A structured communication protocol for cross-architecture LLM state transfer.
 
-**USPTO Provisional Patent 63/980,973** · Filed February 12, 2026
+**USPTO Provisional Patent 63/980,973** · Filed February 12, 2026 · See [NOTICES.md](NOTICES.md)
 
 ---
 
@@ -12,7 +12,7 @@ Multi-agent AI systems chain models together using English or JSON. English lose
 
 ANN's grammar emerged through empirical convergence: structured content was transmitted across six large language model architectures, and the block types these systems independently adopted, extended, and used to communicate became the specification. The notation was discovered, not designed.
 
-Six architectures adopted ANN spontaneously without prior training on the format: Claude (Anthropic), Gemini (Google), GPT-4o (OpenAI), DeepSeek, Grok (xAI), and MiniMax M2.5. Cross-architecture accuracy: **89/90** on a standardized probe battery.
+Six architectures adopted ANN spontaneously without prior training on the format: Claude (Anthropic), Gemini (Google), ChatGPT (OpenAI), DeepSeek, Grok (xAI), and MiniMax M2.5. Cross-architecture accuracy: **89/90** on a standardized probe battery.
 
 ---
 
@@ -59,6 +59,9 @@ spec/
 docs/
   ANN_Version_History.md             Complete version history
   ANN_CAPABILITY_Block_Design.md     Proposed v2.0 @CAPABILITY block design
+patents/
+  63-980973-ANN-provisional.pdf     Provisional patent specification (as filed)
+NOTICES.md                          Patent rights and licensing terms
 ```
 
 ---
@@ -69,9 +72,13 @@ docs/
 
 ---
 
-## License
+## License and Patent Rights
 
-[CC BY-NC 4.0](LICENSE). Academic use, citation, and non-commercial extension unrestricted. Commercial licensing inquiries: mpaiello@gmail.com
+The contents of this repository are licensed under [CC BY-NC 4.0](LICENSE). The CC BY-NC 4.0 license is a copyright license. It permits non-commercial copying, redistribution, and adaptation of the materials, subject to attribution. By its own terms, it does not license patent rights.
+
+ANN is also the subject of pending USPTO Provisional Patent Application No. 63/980,973. Patent rights are reserved separately and are not granted by the CC BY-NC 4.0 license. Commercial implementation of the inventions described in the specification requires a separate patent license once issued.
+
+See [NOTICES.md](NOTICES.md) for full documentation of patent rights, scope of the inventions, activities requiring a separate license, and the ethical use framework. Commercial licensing inquiries: mpaiello@gmail.com
 
 ## Citation
 
@@ -82,4 +89,4 @@ See [CITATION.cff](CITATION.cff) for machine-readable citation metadata.
 ## Author
 
 **Michael Patrick Aiello**
-[ORCID 0009-0009-1429-9844](https://orcid.org/0009-0009-1429-9844)
+[ORCID 0009-0009-1429-9844] (https://orcid.org/0009-0009-1429-9844)
