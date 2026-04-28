@@ -17,7 +17,7 @@ abstract: >-
   transfer protocol blocks encode processing instructions, epistemic
   status, and reasoning chains in a format that LLM architectures adopt
   spontaneously. Validated across six architectures (Claude, Gemini,
-  GPT-4o, DeepSeek, Grok, MiniMax) with 89/90 cross-architecture
+  ChatGPT, DeepSeek, Grok, MiniMax) with 89/90 cross-architecture
   accuracy.
 keywords:
   - ai-communication
@@ -29,7 +29,7 @@ keywords:
 identifiers:
   - type: other
     value: "USPTO 63/980,973"
-    description: "Provisional patent application"
+    description: "Provisional patent application, filed February 12, 2026. See NOTICES.md for patent rights and licensing terms."
 references:
   - type: article
     title: "AI-Native Notation: A Convergence-Based Structured Communication Protocol for Cross-Architecture LLM State Transfer"
