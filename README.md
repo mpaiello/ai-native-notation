@@ -4,6 +4,8 @@ A structured communication protocol for cross-architecture LLM state transfer.
 
 **USPTO Provisional Patent 63/980,973** · Filed February 12, 2026 · See [NOTICES.md](NOTICES.md)
 
+**Researcher homepage:** [mpaiello.github.io](https://mpaiello.github.io)
+
 ---
 
 ## What This Is
@@ -68,7 +70,15 @@ NOTICES.md                          Patent rights and licensing terms
 
 ## Academic Paper
 
-"AI-Native Notation: A Convergence-Based Structured Communication Protocol for Cross-Architecture LLM State Transfer" — under review at *Language Resources and Evaluation* (LRE), submission ID 2aa79221.
+Aiello, M.P. (2026). *AI-Native Notation: A Cross-Architecture Communication Protocol Discovered Through Empirical Convergence*. Zenodo. [https://doi.org/10.5281/zenodo.19874729](https://doi.org/10.5281/zenodo.19874729)
+
+Published preprint with full supplementary materials (62 files, 377 KB) including probes, scoring rubric, replication scripts, BNF grammar, JSON schema, Python validator, and 130 scored API responses across twelve architectures. Manuscript also under peer review at *Language Resources and Evaluation* (Springer Nature), submission ID 2aa79221.
+
+---
+
+## Related Research
+
+The broader research program — theoretical foundation, cross-architecture observer claim, behavioral evidence, and reflexive processing signatures — is consolidated at [mpaiello.github.io](https://mpaiello.github.io). Five preprints in total, four of which use ANN as the methodological instrument.
 
 ---
 
@@ -86,7 +96,9 @@ See [CITATION.cff](CITATION.cff) for machine-readable citation metadata.
 
 > Aiello, M.P. (2026). AI-Native Notation (ANN) [Specification]. https://github.com/mpaiello/ai-native-notation
 
+For the academic paper, see the Academic Paper section above (DOI: 10.5281/zenodo.19874729).
+
 ## Author
 
 **Michael Patrick Aiello**
-[ORCID 0009-0009-1429-9844] (https://orcid.org/0009-0009-1429-9844)
+[ORCID 0009-0009-1429-9844](https://orcid.org/0009-0009-1429-9844)
