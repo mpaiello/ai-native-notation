@@ -311,7 +311,7 @@ def main():
         print(f"ERROR: Problem set not found: {problem_set_path}")
         sys.exit(1)
 
-    all_problems = json.loads(problem_set_path.read_text())
+    all_problems = json.loads(problem_set_path.read_text(encoding="utf-8"))
     if args.problems:
         all_problems = [p for p in all_problems if p["id"] in args.problems]
         if not all_problems:

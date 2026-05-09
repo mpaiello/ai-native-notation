@@ -217,7 +217,7 @@ def main():
     out_json = output_dir / f"v7_5_pilot_verified_{timestamp}.json"
     out_summary = output_dir / f"v7_5_pilot_analysis_summary_{timestamp}.md"
 
-    trials = json.loads(args.input.read_text())
+    trials = json.loads(args.input.read_text(encoding="utf-8"))
     print(f"Loaded {len(trials)} trials from {args.input}")
 
     verified = []

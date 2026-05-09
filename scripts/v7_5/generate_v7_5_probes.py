@@ -87,7 +87,7 @@ def transform_probe(input_path: Path, mapping: dict, title_old: str, title_new: 
                     purpose_old: str, purpose_new: str,
                     obp_old: str, obp_new: str,
                     use_notation_old: str, use_notation_new: str) -> str:
-    text = input_path.read_text()
+    text = input_path.read_text(encoding="utf-8")
     text = text.replace(title_old, title_new)
     text = text.replace(subtitle_old, subtitle_new)
     text = text.replace(purpose_old, purpose_new)
@@ -127,7 +127,7 @@ def main():
             USE_NOTATION_OLD, USE_NOTATION_NEW,
         )
         neutral_path = out_dir / probe.replace(".txt", "_NEUTRAL.txt")
-        neutral_path.write_text(neutral_text)
+        neutral_path.write_text(neutral_text, encoding="utf-8")
         print(f"  WROTE: {neutral_path}")
 
         # Ontology variant
@@ -140,7 +140,7 @@ def main():
             USE_NOTATION_OLD, USE_NOTATION_NEW,
         )
         ontology_path = out_dir / probe.replace(".txt", "_ONTOLOGY.txt")
-        ontology_path.write_text(ontology_text)
+        ontology_path.write_text(ontology_text, encoding="utf-8")
         print(f"  WROTE: {ontology_path}")
 
     # Write tag-mapping reference
@@ -215,7 +215,7 @@ ANN ontology is not.
 Baseline trials reuse v7.0.2 supplementary `reports/api_2026-03-07/` outputs
 for the four-architecture format-comparison panel.
 """
-    (out_dir / "tag_mapping_v7_5.md").write_text(mapping_doc)
+    (out_dir / "tag_mapping_v7_5.md").write_text(mapping_doc, encoding="utf-8")
     print(f"  WROTE: {out_dir / 'tag_mapping_v7_5.md'}")
 
 

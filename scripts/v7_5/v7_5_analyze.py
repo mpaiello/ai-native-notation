@@ -48,7 +48,7 @@ EXP2_THRESHOLDS = {
 
 def analyze_exp1(scored_path: Path) -> dict:
     """Process scored Experiment 1 output and return analysis dict."""
-    data = json.loads(scored_path.read_text())
+    data = json.loads(scored_path.read_text(encoding="utf-8"))
     trials = data.get("scored_trials") or data
     if isinstance(trials, dict):
         trials = trials.get("scored_trials", [])
@@ -83,7 +83,7 @@ def analyze_exp1(scored_path: Path) -> dict:
 
 
 def analyze_exp2(verified_path: Path) -> dict:
-    data = json.loads(verified_path.read_text())
+    data = json.loads(verified_path.read_text(encoding="utf-8"))
     return {
         "by_condition": data.get("by_condition", {}),
         "primary_chi_square": data.get("primary_chi_square_conclusion_x_condition"),

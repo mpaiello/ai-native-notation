@@ -119,13 +119,13 @@ def extract_json(text: str) -> dict | None:
 
 
 def score_with_rater_a(client: Anthropic, prompt: str) -> dict:
-    """Anthropic API call to Rater A (Claude Opus 4.7)."""
+    """Anthropic API call to Rater A (Claude Opus 4.7).
+    Note: temperature parameter is deprecated for opus-4.7 and must be omitted."""
     start = time.time()
     try:
         resp = client.messages.create(
             model=RATER_A_MODEL,
             max_tokens=1024,
-            temperature=0.0,
             messages=[{"role": "user", "content": prompt}],
         )
         elapsed = time.time() - start
@@ -241,7 +241,7 @@ def main():
     out_json = output_dir / f"v7_5_tagshuffle_scored_{timestamp}.json"
     out_summary = output_dir / f"v7_5_tagshuffle_scoring_summary_{timestamp}.md"
 
-    trials = json.loads(args.input.read_text())
+    trials = json.loads(args.input.read_text(encoding="utf-8"))
     print(f"Loaded {len(trials)} trials from {args.input}")
     print(f"Successful trials to score: {sum(1 for t in trials if t['success'])}")
 
