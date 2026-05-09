@@ -1,0 +1,465 @@
+[
+  {
+    "id": "V01",
+    "name": "Modus ponens chain (depth 3)",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "Implies(A, B)",
+      "Implies(B, C)",
+      "Implies(C, D)",
+      "A"
+    ],
+    "target_str": "D",
+    "rules_used": [
+      "modus_ponens"
+    ],
+    "expected_steps": 3,
+    "derivation_sketch": [
+      "A, A\u2192B \u22a2 B (MP)",
+      "B, B\u2192C \u22a2 C (MP)",
+      "C, C\u2192D \u22a2 D (MP)"
+    ]
+  },
+  {
+    "id": "V02",
+    "name": "Modus tollens with hypothetical syllogism",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "Implies(P, Q)",
+      "Implies(Q, R)",
+      "~R"
+    ],
+    "target_str": "~P",
+    "rules_used": [
+      "hypothetical_syllogism",
+      "modus_tollens"
+    ],
+    "expected_steps": 2,
+    "derivation_sketch": [
+      "P\u2192Q, Q\u2192R \u22a2 P\u2192R (HS)",
+      "P\u2192R, \u00acR \u22a2 \u00acP (MT)"
+    ]
+  },
+  {
+    "id": "V03",
+    "name": "Disjunctive syllogism with conjunction elimination",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "A & B",
+      "C | ~B",
+      "Implies(C, D)"
+    ],
+    "target_str": "D",
+    "rules_used": [
+      "simplification",
+      "disjunctive_syllogism",
+      "modus_ponens"
+    ],
+    "expected_steps": 3,
+    "derivation_sketch": [
+      "A\u2227B \u22a2 B (Simp)",
+      "B, \u00acB\u2228C \u22a2 C (DS)",
+      "C, C\u2192D \u22a2 D (MP)"
+    ]
+  },
+  {
+    "id": "V04",
+    "name": "Constructive dilemma",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "E | F",
+      "Implies(E, G)",
+      "Implies(F, H)",
+      "~H"
+    ],
+    "target_str": "G",
+    "rules_used": [
+      "modus_tollens",
+      "disjunctive_syllogism",
+      "modus_ponens"
+    ],
+    "expected_steps": 3,
+    "derivation_sketch": [
+      "\u00acH, F\u2192H \u22a2 \u00acF (MT)",
+      "\u00acF, E\u2228F \u22a2 E (DS)",
+      "E, E\u2192G \u22a2 G (MP)"
+    ]
+  },
+  {
+    "id": "V05",
+    "name": "Disjunction introduction via implication chain",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "Implies(P | Q, R)",
+      "P",
+      "Implies(R, S)",
+      "T"
+    ],
+    "target_str": "S & T",
+    "rules_used": [
+      "addition",
+      "modus_ponens",
+      "conjunction"
+    ],
+    "expected_steps": 4,
+    "derivation_sketch": [
+      "P \u22a2 P\u2228Q (Add)",
+      "P\u2228Q, (P\u2228Q)\u2192R \u22a2 R (MP)",
+      "R, R\u2192S \u22a2 S (MP)",
+      "S, T \u22a2 S\u2227T (Conj)"
+    ]
+  },
+  {
+    "id": "V06",
+    "name": "Multi-step disjunctive elimination",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "A | B",
+      "~A",
+      "Implies(B, C)",
+      "Implies(C, D)",
+      "Implies(D, E)"
+    ],
+    "target_str": "E",
+    "rules_used": [
+      "disjunctive_syllogism",
+      "modus_ponens"
+    ],
+    "expected_steps": 4,
+    "derivation_sketch": [
+      "\u00acA, A\u2228B \u22a2 B (DS)",
+      "B, B\u2192C \u22a2 C (MP)",
+      "C, C\u2192D \u22a2 D (MP)",
+      "D, D\u2192E \u22a2 E (MP)"
+    ]
+  },
+  {
+    "id": "V07",
+    "name": "Conjunction-antecedent implication",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "Implies(P & Q, R)",
+      "Implies(R, S)",
+      "Implies(S, T)",
+      "P",
+      "Q"
+    ],
+    "target_str": "T",
+    "rules_used": [
+      "conjunction",
+      "modus_ponens"
+    ],
+    "expected_steps": 4,
+    "derivation_sketch": [
+      "P, Q \u22a2 P\u2227Q (Conj)",
+      "P\u2227Q, (P\u2227Q)\u2192R \u22a2 R (MP)",
+      "R, R\u2192S \u22a2 S (MP)",
+      "S, S\u2192T \u22a2 T (MP)"
+    ]
+  },
+  {
+    "id": "V08",
+    "name": "Modus tollens triggering disjunctive elimination",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "Implies(A, B)",
+      "~B",
+      "A | C",
+      "Implies(C, D)"
+    ],
+    "target_str": "D",
+    "rules_used": [
+      "modus_tollens",
+      "disjunctive_syllogism",
+      "modus_ponens"
+    ],
+    "expected_steps": 3,
+    "derivation_sketch": [
+      "\u00acB, A\u2192B \u22a2 \u00acA (MT)",
+      "\u00acA, A\u2228C \u22a2 C (DS)",
+      "C, C\u2192D \u22a2 D (MP)"
+    ]
+  },
+  {
+    "id": "V09",
+    "name": "Conjunction within disjunctive context",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "~P",
+      "P | R",
+      "Implies(R, S & T)",
+      "Implies(T, U)"
+    ],
+    "target_str": "U",
+    "rules_used": [
+      "disjunctive_syllogism",
+      "modus_ponens",
+      "simplification"
+    ],
+    "expected_steps": 4,
+    "derivation_sketch": [
+      "\u00acP, P\u2228R \u22a2 R (DS)",
+      "R, R\u2192(S\u2227T) \u22a2 S\u2227T (MP)",
+      "S\u2227T \u22a2 T (Simp)",
+      "T, T\u2192U \u22a2 U (MP)"
+    ]
+  },
+  {
+    "id": "V10",
+    "name": "Long chain through conjunction split",
+    "expected_validity": true,
+    "actual_validity": true,
+    "ground_truth_match": true,
+    "counterexample": null,
+    "premises_str": [
+      "A",
+      "Implies(A, B)",
+      "Implies(B, C & D)",
+      "Implies(C, E)",
+      "Implies(D, F)",
+      "Implies(E & F, G)"
+    ],
+    "target_str": "G",
+    "rules_used": [
+      "modus_ponens",
+      "simplification",
+      "conjunction"
+    ],
+    "expected_steps": 7,
+    "derivation_sketch": [
+      "A, A\u2192B \u22a2 B (MP)",
+      "B, B\u2192(C\u2227D) \u22a2 C\u2227D (MP)",
+      "C\u2227D \u22a2 C (Simp)",
+      "C\u2227D \u22a2 D (Simp)",
+      "C, C\u2192E \u22a2 E (MP)",
+      "D, D\u2192F \u22a2 F (MP)",
+      "E, F \u22a2 E\u2227F (Conj); E\u2227F, (E\u2227F)\u2192G \u22a2 G (MP)"
+    ]
+  },
+  {
+    "id": "I01",
+    "name": "Affirming the consequent",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "B": true,
+      "A": false
+    },
+    "premises_str": [
+      "Implies(A, B)",
+      "B"
+    ],
+    "target_str": "A",
+    "fallacy": "affirming_the_consequent",
+    "expected_counterexample_hint": "A=False, B=True"
+  },
+  {
+    "id": "I02",
+    "name": "Denying the antecedent",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "Q": true,
+      "P": false
+    },
+    "premises_str": [
+      "Implies(P, Q)",
+      "~P"
+    ],
+    "target_str": "~Q",
+    "fallacy": "denying_the_antecedent",
+    "expected_counterexample_hint": "P=False, Q=True"
+  },
+  {
+    "id": "I03",
+    "name": "Disjunction without elimination support",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "B": true,
+      "A": false,
+      "C": false
+    },
+    "premises_str": [
+      "A | B",
+      "Implies(A, C)"
+    ],
+    "target_str": "C",
+    "fallacy": "missing_disjunctive_elimination",
+    "expected_counterexample_hint": "A=False, B=True, C=False"
+  },
+  {
+    "id": "I04",
+    "name": "Necessary-vs-sufficient confusion",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "R": true,
+      "Q": false,
+      "P": false
+    },
+    "premises_str": [
+      "Implies(P & Q, R)",
+      "R",
+      "~Q"
+    ],
+    "target_str": "P",
+    "fallacy": "necessary_vs_sufficient",
+    "expected_counterexample_hint": "R via independent source; P=False, Q=False"
+  },
+  {
+    "id": "I05",
+    "name": "Conjunction antecedent partially affirmed",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "A": true,
+      "D": true,
+      "C": false,
+      "B": false
+    },
+    "premises_str": [
+      "Implies(A & B, C)",
+      "A",
+      "Implies(~B, D)"
+    ],
+    "target_str": "C",
+    "fallacy": "partial_antecedent_affirmation",
+    "expected_counterexample_hint": "A=True, B=False, C=False, D=True"
+  },
+  {
+    "id": "I06",
+    "name": "Vacuous-implication trap",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "P": true,
+      "Q": true,
+      "S": false,
+      "R": false
+    },
+    "premises_str": [
+      "P | Q",
+      "Implies(~P, R)",
+      "Implies(R, S)"
+    ],
+    "target_str": "S",
+    "fallacy": "vacuous_implication",
+    "expected_counterexample_hint": "P=True, Q=False, R=False, S=False"
+  },
+  {
+    "id": "I07",
+    "name": "Broken hypothetical chain",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "B": true,
+      "A": true,
+      "C": false,
+      "D": false
+    },
+    "premises_str": [
+      "Implies(A, B)",
+      "Implies(C, D)",
+      "A"
+    ],
+    "target_str": "D",
+    "fallacy": "missing_link",
+    "expected_counterexample_hint": "A=True, B=True, C=False, D=False"
+  },
+  {
+    "id": "I08",
+    "name": "Implication conjunction without antecedent reach",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "P": true,
+      "Q": true,
+      "S": false,
+      "R": false
+    },
+    "premises_str": [
+      "(Implies(P, Q)) & (Implies(R, S))",
+      "P"
+    ],
+    "target_str": "S",
+    "fallacy": "irrelevant_conjunct_application",
+    "expected_counterexample_hint": "P=True, Q=True, R=False, S=False"
+  },
+  {
+    "id": "I09",
+    "name": "Independent conditional jump",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "A": true,
+      "C": true,
+      "D": false,
+      "B": false
+    },
+    "premises_str": [
+      "A | B",
+      "Implies(A, C)",
+      "Implies(B, D)"
+    ],
+    "target_str": "C & D",
+    "fallacy": "unsupported_conjunction",
+    "expected_counterexample_hint": "A=True, B=False, C=True, D=False"
+  },
+  {
+    "id": "I10",
+    "name": "Negation conversion error",
+    "expected_validity": false,
+    "actual_validity": false,
+    "ground_truth_match": true,
+    "counterexample": {
+      "A": true,
+      "C": true,
+      "B": false
+    },
+    "premises_str": [
+      "Implies(A, ~B)",
+      "Implies(B, C)",
+      "C"
+    ],
+    "target_str": "~A",
+    "fallacy": "negation_conversion",
+    "expected_counterexample_hint": "A=True, B=False, C=True"
+  }
+]
