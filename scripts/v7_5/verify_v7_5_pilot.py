@@ -310,7 +310,7 @@ def main():
     }
 
     output_payload = {**summary, "verified_trials": verified}
-    out_json.write_text(json.dumps(output_payload, indent=2, ensure_ascii=False))
+    out_json.write_text(json.dumps(output_payload, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nVerified output: {out_json}")
 
     # Markdown summary
@@ -347,7 +347,7 @@ def main():
         sig = "**YES**" if r["significant_after_bonferroni"] else "no"
         lines.append(f"| ANN vs {c} | {r['ann_correct_rate']} | {r['baseline_correct_rate']} | "
                      f"{r['p_value']} | {r['cohens_h']} | {sig} |")
-    out_summary.write_text("\n".join(lines))
+    out_summary.write_text("\n".join(lines), encoding="utf-8")
     print(f"Summary: {out_summary}")
     return 0
 

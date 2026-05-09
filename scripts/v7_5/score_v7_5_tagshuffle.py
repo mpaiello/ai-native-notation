@@ -331,7 +331,7 @@ def main():
         "disagreements": disagreements,
         "scored_trials": scored,
     }
-    out_json.write_text(json.dumps(output_payload, indent=2, ensure_ascii=False))
+    out_json.write_text(json.dumps(output_payload, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nScored output: {out_json}")
 
     # Summary markdown
@@ -354,7 +354,7 @@ def main():
         "Adjudication is performed manually per pre-registration; results recorded",
         "in `v7_5_deviation_log.md`.",
     ]
-    out_summary.write_text("\n".join(lines))
+    out_summary.write_text("\n".join(lines), encoding="utf-8")
     print(f"Summary: {out_summary}")
     return 0
 

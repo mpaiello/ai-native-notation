@@ -319,7 +319,7 @@ def main():
 
     # Export JSON
     out_path = out_dir / "v7_5_problem_set.json"
-    out_path.write_text(json.dumps(all_records, indent=2))
+    out_path.write_text(json.dumps(all_records, indent=2), encoding="utf-8")
     print(f"\nWrote: {out_path}")
 
     # Summary

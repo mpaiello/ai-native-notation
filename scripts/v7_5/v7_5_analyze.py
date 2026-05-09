@@ -180,7 +180,7 @@ def write_tables(exp1: dict | None, exp2: dict | None, out_path: Path) -> None:
                          f"{r.get('cohens_h')} | {sig} |")
         lines.append("")
 
-    out_path.write_text("\n".join(lines))
+    out_path.write_text("\n".join(lines), encoding="utf-8")
 
 
 def write_threshold_check(exp1_decision, exp2_decision, out_path: Path) -> None:
@@ -197,7 +197,7 @@ def write_threshold_check(exp1_decision, exp2_decision, out_path: Path) -> None:
         lines.append(f"## Experiment 2: `{key}`\n")
         lines.append(f"{text}\n")
         lines.append("")
-    out_path.write_text("\n".join(lines))
+    out_path.write_text("\n".join(lines), encoding="utf-8")
 
 
 def main():

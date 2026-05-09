@@ -407,7 +407,7 @@ def main():
 
     output_dir.mkdir(parents=True, exist_ok=True)
     out_json = output_dir / f"v7_5_pilot_{timestamp}.json"
-    out_json.write_text(json.dumps(results, indent=2, ensure_ascii=False))
+    out_json.write_text(json.dumps(results, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"\nRaw results: {out_json}")
     return 0
 
