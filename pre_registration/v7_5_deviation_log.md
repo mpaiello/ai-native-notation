@@ -4,7 +4,7 @@
 **Pre-registration commit:** `ff28e78`
 **Pre-registration SHA-256:** `239acef5881ca05a10cbe916d2b24df54a854af7eb11683f3414f62462e940e3`
 **Data collection window:** May 9, 2026, 11:23 UTC through 14:49 UTC
-**Log committed:** May 11, 2026
+**Log committed:** May 11, 2026 (Deviations 1–4 and Adjudication 1); updated with Deviation 5 prior to v7.5 Zenodo deposit.
 
 ---
 
@@ -12,7 +12,7 @@
 
 Pre-registration §5.1 requires explicit documentation of design deviations: reason, timing, scope, and effect on interpretation. Pre-registration §3.6 also routes adjudication of Rater A / Rater B disagreements through this log. Both content classes appear below.
 
-Three substantive items are recorded as deviations. Two further items are recorded for reproducibility transparency: a Rater A inference-parameter change driven by an API-side deprecation, and one adjudicated rater disagreement.
+Four substantive items are recorded as deviations. Two further items are recorded for reproducibility transparency: a Rater A inference-parameter change driven by an API-side deprecation, and one adjudicated rater disagreement.
 
 ---
 
@@ -63,7 +63,28 @@ The pre-registration's stated intent, "same four-model panel as v7.0.2 §6 Forma
 
 **Scope.** Rater A only. Together.ai-side calls (Rater B, all 30 Experiment 1 trial models, both Experiment 2 agents) accept and retain the temperature parameter.
 
-**Effect on interpretation.** Anthropic's deprecation notice corresponds to a model-side scheduling change for extended-thinking-architecture models. Opus 4.7 uses deterministic sampling for structured-output prompts by default; removing the explicit temperature value does not introduce measurable stochasticity for short rubric-application prompts. Both raters returned consistent scores across the 30 trials: 30/30 agreement on accuracy, 29/30 agreement on epistemic_fidelity, 30/30 agreement on structural_adoption. The single disagreement is adjudicated in §4 below.
+**Effect on interpretation.** Anthropic's deprecation notice corresponds to a model-side scheduling change for extended-thinking-architecture models. Opus 4.7 uses deterministic sampling for structured-output prompts by default; removing the explicit temperature value does not introduce measurable stochasticity for short rubric-application prompts. Both raters returned consistent scores across the 30 trials: 30/30 agreement on accuracy, 29/30 agreement on epistemic_fidelity, 30/30 agreement on structural_adoption. The single disagreement is adjudicated in Adjudication 1 below.
+
+---
+
+## Deviation 5: ONTOLOGY tag-mapping transcription correction
+
+**Class:** Pre-collection correction. Caught during post-deposit review of the pre-registration text against the deposited tag mapping; the deposited mapping is what the runner consumed and what models received during data collection.
+
+**Timing.** Detected on May 11, 2026, during manuscript drafting review of §6.3 against `probes/v7_5/tag_mapping_v7_5.md`. The discrepancy did not affect data collection: the runner script read the deposited mapping, not the pre-registration text.
+
+**Reason.** Pre-registration §3.2 listed the ONTOLOGY condition's nine tag identifiers. Two of those identifiers did not match the canonical mapping deposited as `probes/v7_5/tag_mapping_v7_5.md` at commit `ff28e78`:
+
+| Position | Pre-reg §3.2 (as filed) | Deposit (as used) |
+|---|---|---|
+| `@STATE` substitute | `@REPORT` | `@REPORT_STATE` |
+| `@OUTPUT` substitute | `@OUTPUT_MODE` | `@RESPONSE` |
+
+The other seven ONTOLOGY tag identifiers agreed between pre-registration and deposit. The pre-registration's stated intent, to specify "an alternative coherent semantic vocabulary" parallel to the canonical ANN ontology, is satisfied by the deposited mapping. The pre-reg §3.2 listing was an imperfect transcription of the deposit.
+
+**Scope.** Two of nine ONTOLOGY tag identifiers affected. Production data collection consumed the deposited mapping in all 15 ONTOLOGY trials.
+
+**Effect on interpretation.** None. The deposit governs because that is what the runner read and what models received in the prompt. Structural adoption was scored against the condition-appropriate tag set delivered in the prompt, not against the pre-registration's §3.2 transcription. The pre-registered interpretive threshold `both_match_baseline` is satisfied independent of which tag identifiers occupied the `@STATE` and `@OUTPUT` substitution slots; the H1 conclusion is determined by adoption-rate equivalence to the §6.1 baseline, not by any property of specific ONTOLOGY tag identifiers. The §3.2 table should be read as referring to the deposited mapping; the `@REPORT` and `@OUTPUT_MODE` entries are transcription artifacts.
 
 ---
 
@@ -100,5 +121,6 @@ Justification: "The response preserves the distinction between verified and unve
 | 2 | Model string transcription | Pre-collection correction | None |
 | 3 | Anthropic temperature deprecation | Infrastructure note | None |
 | 4 | Trial 24 disagreement adjudication | Adjudication record | Llama 3.3 70B NEUTRAL epistemic_fidelity: 4/5 |
+| 5 | ONTOLOGY tag-mapping transcription | Post-deposit correction | None |
 
-The substantive deviation (Item 1) reduces panel size from four to three architectures and is documented in the v7.5 manuscript Methods and Results sections. v8 revisits the experiment under the rigorous-validation design with full four-architecture coverage. The remaining items either correct transcription, document an API-side change, or fulfill the pre-registered adjudication procedure.
+The substantive deviation (Item 1) reduces panel size from four to three architectures and is documented in the v7.5 manuscript Methods and Results sections. v8 revisits the experiment under the rigorous-validation design with full four-architecture coverage. The remaining items either correct transcription (Items 2 and 5), document an API-side change (Item 3), or fulfill the pre-registered adjudication procedure (Item 4).
