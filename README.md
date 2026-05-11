@@ -70,9 +70,15 @@ NOTICES.md                          Patent rights and licensing terms
 
 ## Academic Paper
 
-Aiello, M.P. (2026). *AI-Native Notation: A Cross-Architecture Communication Protocol Discovered Through Empirical Convergence*. Zenodo. [https://doi.org/10.5281/zenodo.19874729](https://doi.org/10.5281/zenodo.19874729)
+Aiello, M.P. (2026). *AI-Native Notation: A Cross-Architecture Communication Protocol Discovered Through Empirical Convergence*. Zenodo. Concept-DOI: [https://doi.org/10.5281/zenodo.19874728](https://doi.org/10.5281/zenodo.19874728) (resolves to latest version).
 
-Published preprint with full supplementary materials (62 files, 377 KB) including probes, scoring rubric, replication scripts, BNF grammar, JSON schema, Python validator, and 130 scored API responses across twelve architectures. Manuscript also under peer review at *Language Resources and Evaluation* (Springer Nature), submission ID 2aa79221.
+**v6.2** (May 8, 2026) is the most recent version deposited to Zenodo. Earlier versions (v6.1 and prior) remain accessible via the concept-DOI's version list. Full supplementary materials (62 files, 377 KB) include probes, scoring rubric, replication scripts, BNF grammar, JSON schema, Python validator, and 130 scored API responses across twelve architectures.
+
+**v7.0.2** is under peer review at *Language Resources and Evaluation* (Springer Nature), submission ID 2aa79221. The v7.0.2 manuscript adds a controlled format comparison (§6.1), a nonsense control (§6.2), and an expanded three-chain experiment. Zenodo deposit pending.
+
+**v7.5** is the current development version. Manuscript source in `paper4_v7_5.md`. Adds two pre-registered experiments: a tag-shuffle ablation (§6.3) testing whether ANN's specific tag tokens are load-bearing, and a theorem-proving handoff pilot (§6.4) testing downstream coordination quality. Tag-shuffle result falsifies the specific-tag-token hypothesis and locates ANN's contribution at the schema level. Pilot reports a pre-registered null at N=100 indicating a task-difficulty ceiling on the problem class tested. Pre-registration: commit `ff28e78` (SHA-256 `239acef5881ca05a10cbe916d2b24df54a854af7eb11683f3414f62462e940e3`). Experimental data: commit `820bb0b`. Deviation log: `pre_registration/v7_5_deviation_log.md`. Zenodo deposit pending.
+
+The `paper4_v7_5.md` file is pandoc source. Tables and inline directives render correctly when processed through pandoc; on GitHub's raw markdown preview they appear as unformatted text. Readable HTML/PDF/DOCX versions will be on Zenodo once the v7.5 deposit lands.
 
 ---
 
@@ -96,7 +102,7 @@ See [CITATION.cff](CITATION.cff) for machine-readable citation metadata.
 
 > Aiello, M.P. (2026). AI-Native Notation (ANN) [Specification]. https://github.com/mpaiello/ai-native-notation
 
-For the academic paper, see the Academic Paper section above (DOI: 10.5281/zenodo.19874729).
+For the academic paper, see the Academic Paper section above (concept-DOI: 10.5281/zenodo.19874728).
 
 ## Author
 
