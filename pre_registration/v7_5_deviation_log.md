@@ -4,7 +4,7 @@
 **Pre-registration commit:** `ff28e78`
 **Pre-registration SHA-256:** `239acef5881ca05a10cbe916d2b24df54a854af7eb11683f3414f62462e940e3`
 **Data collection window:** May 9, 2026, 11:23 UTC through 14:49 UTC
-**Log committed:** May 11, 2026 (Deviations 1–4 and Adjudication 1); updated with Deviation 5 prior to v7.5 Zenodo deposit.
+**Log committed:** May 11, 2026; updated with Deviation 5 prior to v7.5 Zenodo deposit.
 
 ---
 
@@ -12,7 +12,7 @@
 
 Pre-registration §5.1 requires explicit documentation of design deviations: reason, timing, scope, and effect on interpretation. Pre-registration §3.6 also routes adjudication of Rater A / Rater B disagreements through this log. Both content classes appear below.
 
-Four substantive items are recorded as deviations. Two further items are recorded for reproducibility transparency: a Rater A inference-parameter change driven by an API-side deprecation, and one adjudicated rater disagreement.
+Five items are recorded below: four under "Deviation N" headings and one as "Adjudication 1." Of the four deviations, one (Item 1, Maverick endpoint) is a substantive deviation from pre-registered design; the others are transcription corrections (Items 2, 5) and an infrastructure note documented for reproducibility transparency (Item 3). Adjudication 1 fulfills the pre-registered §3.6 adjudication procedure.
 
 ---
 
