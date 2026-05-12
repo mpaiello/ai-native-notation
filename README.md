@@ -72,15 +72,17 @@ NOTICES.md                          Patent rights and licensing terms
 
 Aiello, M.P. (2026). *AI-Native Notation: A Cross-Architecture Communication Protocol Discovered Through Empirical Convergence*. Zenodo. Concept-DOI: [https://doi.org/10.5281/zenodo.19874728](https://doi.org/10.5281/zenodo.19874728) (resolves to latest version).
 
-**v6.2** (May 8, 2026) is the most recent version deposited to Zenodo. Earlier versions (v6.1 and prior) remain accessible via the concept-DOI's version list. Full supplementary materials (62 files, 377 KB) include probes, scoring rubric, replication scripts, BNF grammar, JSON schema, Python validator, and 130 scored API responses across twelve architectures.
+**v7.5** (May 12, 2026) is the most recent version deposited to Zenodo. Version DOI: [10.5281/zenodo.20133951](https://doi.org/10.5281/zenodo.20133951). The deposit includes the manuscript in four formats (PDF, HTML, DOCX, Markdown), the v7.5 pre-registration, the deviation log, the consolidated `changelog-v7-5.md`, and the supplementary materials package (62 files, 377 KB) covering probes, scoring rubric, replication scripts, BNF grammar, JSON schema, Python validator, and 130 scored API responses across twelve architectures.
+
+v7.5 is the first version since v6.0 to extend the empirical record. It adds two pre-registered experiments: a tag-shuffle ablation (§6.3) testing whether ANN's specific tag tokens are load-bearing, and a theorem-proving handoff pilot (§6.4) testing downstream coordination quality. The tag-shuffle result falsifies the specific-tag-token hypothesis and locates ANN's contribution at the schema level. The pilot reports a pre-registered null at N=100 indicating a task-difficulty ceiling on the problem class tested. Pre-registration: commit `ff28e78` (SHA-256 `239acef5881ca05a10cbe916d2b24df54a854af7eb11683f3414f62462e940e3`). Experimental data: commit `820bb0b`. Renders: commit `b24c4fc`, tagged `v7.5`. Deviation log: `pre_registration/v7_5_deviation_log.md`.
+
+v7.5 also introduces a new permissive licensing stack for the paper, specification, grammar, and probes (CC BY 4.0) and the validator and analysis scripts (Apache License 2.0). See the Zenodo record for license details specific to that deposit. Prior v6.x versions remain under CC BY-NC 4.0 as deposited.
 
 **v6.0** is under peer review at *Language Resources and Evaluation* (Springer Nature), submission ID 2aa79221.
 
-**v7.x** is an internal development line not yet deposited to Zenodo. The v6.x → v7.x sequence preserves the v6.0 experimental record (cross-architecture validation, format comparison §6.1, nonsense control §6.2, three-chain experiment, receiving-system propagation observation) and adds related-work and methodological refinements. v7.0 integrates Chen et al. (2023) and introduces §2.3 "Prompt-Based Coordination Brittleness"; v7.0.1 applies convergent fixes from a four-architecture adversarial review to §2.3; v7.0.2 reconciles BNF specification versioning with the v1.0 block inventory in §3.4.
+**Prior versions** (v6.2, v6.1) remain accessible via the concept-DOI's version list. v6.2 (May 8, 2026, DOI [10.5281/zenodo.20085811](https://doi.org/10.5281/zenodo.20085811)) was the immediately-prior public version.
 
-**v7.5** (manuscript source in `paper4_v7_5.md`) is the first version since v6.0 to extend the empirical record. It adds two pre-registered experiments: a tag-shuffle ablation (§6.3) testing whether ANN's specific tag tokens are load-bearing, and a theorem-proving handoff pilot (§6.4) testing downstream coordination quality. Tag-shuffle result falsifies the specific-tag-token hypothesis and locates ANN's contribution at the schema level. Pilot reports a pre-registered null at N=100 indicating a task-difficulty ceiling on the problem class tested. Pre-registration: commit `ff28e78` (SHA-256 `239acef5881ca05a10cbe916d2b24df54a854af7eb11683f3414f62462e940e3`). Experimental data: commit `820bb0b`. Deviation log: `pre_registration/v7_5_deviation_log.md`.
-
-The `paper4_v7_5.md` file is pandoc source. Tables and inline directives render correctly when processed through pandoc; on GitHub's raw markdown preview they appear as unformatted text. v7.5 Zenodo deposit is scheduled for May 12, 2026, after which readable HTML/PDF/DOCX renderings will be linked here.
+**Internal development line (v7.0, v7.0.1, v7.0.2)** between v6.2 and v7.5 was not deposited to Zenodo. The v6.x → v7.x sequence preserves the v6.0 experimental record (cross-architecture validation, format comparison §6.1, nonsense control §6.2, three-chain experiment, receiving-system propagation observation) and adds related-work and methodological refinements. v7.0 integrates Chen et al. (2023) and introduces §2.3 "Prompt-Based Coordination Brittleness"; v7.0.1 applies convergent fixes from a four-architecture adversarial review to §2.3; v7.0.2 reconciles BNF specification versioning with the v1.0 block inventory in §3.4. Per-version detail in `CHANGELOG_v7_0.md`, `CHANGELOG_v7_0_1.md`, and `CHANGELOG_v7_0_2.md`. The consolidated v6.2 → v7.5 walk is in `changelog-v7-5.md`.
 
 ---
 
@@ -92,9 +94,15 @@ The broader research program — theoretical foundation, cross-architecture obse
 
 ## License and Patent Rights
 
-The contents of this repository are licensed under [CC BY-NC 4.0](LICENSE). The CC BY-NC 4.0 license is a copyright license. It permits non-commercial copying, redistribution, and adaptation of the materials, subject to attribution. By its own terms, it does not license patent rights.
+Starting with v7.5 (May 2026), ANN moves to a permissive licensing stack. Component-by-component:
 
-ANN is also the subject of pending USPTO Provisional Patent Application No. 63/980,973. Patent rights are reserved separately and are not granted by the CC BY-NC 4.0 license. Commercial implementation of the inventions described in the specification requires a separate patent license once issued.
+- **Paper, specification, BNF grammar, JSON Schema, and probe files:** [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/). Free to copy, redistribute, adapt, and use commercially, subject to attribution.
+- **Python validator and analysis scripts:** [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). Free to use, modify, and distribute under the Apache 2.0 terms.
+- **Prior v6.x versions (Zenodo records up to and including v6.2):** [CC BY-NC 4.0](LICENSE) as originally deposited. Those records remain available under the original license.
+
+The CC BY 4.0 and Apache 2.0 licenses are copyright licenses. By their own terms, they do not license patent rights.
+
+ANN is also the subject of pending USPTO Provisional Patent Application No. 63/980,973 (filed February 12, 2026). Patent rights are reserved separately and are not granted by the copyright licenses above. Commercial implementation of the inventions described in the specification, including the block-level processing-instruction architecture, the convergence-based grammar evolution methodology, and the cross-architecture coordination protocol, requires a separate patent license once issued.
 
 See [NOTICES.md](NOTICES.md) for full documentation of patent rights, scope of the inventions, activities requiring a separate license, and the ethical use framework. Commercial licensing inquiries: mpaiello@gmail.com
 
